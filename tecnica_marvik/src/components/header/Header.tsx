@@ -3,7 +3,6 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
@@ -14,14 +13,14 @@ import logo from '../../logo__ml.png';
 const pages = ['Usuario', 'Vendedor'];
 
 function Header() {
-  const [open, setOpen] = React.useState<null | HTMLElement>(null);
+  const [open, setOpen] = React.useState<undefined | HTMLElement>(undefined);
 
   const handleOpenMenu = (event: React.MouseEvent<HTMLElement>) => {
     setOpen(event.currentTarget);
   };
 
   const handleCloseMenu = () => {
-    setOpen(null);
+    setOpen(undefined);
   };
 
   return (
@@ -35,7 +34,6 @@ function Header() {
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }}}>
             <IconButton
               size="large"
-              aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenMenu}
@@ -63,7 +61,7 @@ function Header() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <div style={{alignSelf: "center"}}>{page}</div>
                 </MenuItem>
               ))}
             </Menu>

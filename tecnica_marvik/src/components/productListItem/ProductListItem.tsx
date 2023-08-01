@@ -4,7 +4,7 @@ function ProductListItem(props: any) {
     const {product} = props;
 
     const handleProductClick = () => {
-        console.log(product);
+        //TODO: Define handler
     }
 
     return (
