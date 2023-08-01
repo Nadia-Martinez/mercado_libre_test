@@ -26,7 +26,7 @@ function Header() {
 
   return (
     <AppBar position="static" sx={{backgroundColor: '#fff159'}}>
-      <Container maxWidth="xl">
+      <Container>
         <Toolbar disableGutters>
           <Box sx={{display: { xs: 'none', md: 'flex' }, marginRight: 10}}>
             <img src={logo} alt="Logo" />

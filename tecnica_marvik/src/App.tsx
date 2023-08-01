@@ -1,13 +1,13 @@
 import './App.css';
-import CategoriesList from './components/categoriesList/CategoriesList';
 import Header from './components/header/Header';
+import CategoriesProductsList from './pages/categoryProductsList/CategoryProductsList';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <div style={{display: "flex", height: "100vh"}}>
-        <CategoriesList />
+      <div className='bodyContainer'>
+        <CategoriesProductsList />
       </div>
     </div>
   );

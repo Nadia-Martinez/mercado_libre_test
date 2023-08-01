@@ -1,0 +1,28 @@
+.container {
+    background-color: rgb(51, 51, 51);
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 20%;
+}
+
+.title {
+    color: #FFFFFF;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'Montserrat-Bold'; 
+    font-size: 28px;
+}
+
+.category {
+    color: #FFFFFF;
+    font-family: 'Montserrat-Regular'; 
+}
+
+.categoryContainer {
+    padding-left: 40px;
+    width: 80%;
+}
