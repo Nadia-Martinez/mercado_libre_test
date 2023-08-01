@@ -1,15 +1,15 @@
+import './CategoryProductsList.css';
+import React from 'react';
 import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import React from 'react';
-import { fetchCategories, fetchCategoryProducts } from '../../DataStore';
-import ProductListItem from '../../components/productListItem/ProductListItem';
-import './CategoryProductsList.css';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
+import ProductListItem from '../../components/productListItem/ProductListItem';
+import { fetchCategories, fetchCategoryProducts } from '../../DataStore';
 
 function CategoriesProductsList() {
     const [categories, setCategories] = React.useState([]);
@@ -96,7 +96,7 @@ function CategoriesProductsList() {
                 selectedCategory ?
                     <>
                         <div className='categoryHeader'>
-                            <div style={{fontFamily: 'Montserrat-Bold', fontSize: 40}}>{selectedCategory?.name}</div>
+                            <div className='categoryName'>{selectedCategory?.name}</div>
 
                             <div className='sorterContainer'>
                                 <div className='sortByText'>Ordenar por</div>
