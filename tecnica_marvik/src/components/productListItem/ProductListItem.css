@@ -1,0 +1,21 @@
+.itemContainer {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    cursor: pointer;
+    border-bottom-color: lightgray;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+.detailsContainer {
+    margin-left: 20px;
+    font-family: 'Montserrat-Light';
+    width: 70%;
+}
+
+.price {
+    margin-top: 20px;
+    font-family: 'Montserrat-Regular';
+    font-size: 20px; 
+}
