@@ -23,6 +23,52 @@
 }
 
 .categoryContainer {
-    padding-left: 40px;
-    width: 80%;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 65%;
+}
+
+.loadingContainer {
+    margin-left: 50%; 
+    margin-top: 30%;
+    color: #fff159;
+}
+
+.categoryHeader {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.sorterContainer {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+}
+
+.sortByText {
+    margin-right: 10px;
+    font-family: 'Montserrat-Regular';
+}
+
+.filtersContainer {
+    padding-left: 30px;
+    width: 15%;
+    padding-top: 80px;
+    background-color: #ededed; 
+}
+
+.filtersTitle {
+    font-size: 20px;
+    font-family: 'Montserrat-Bold';
+    margin-bottom: 20px;
+}
+
+.emptyText {
+    font-family: 'Montserrat-Regular';
+    font-size: 20px;
+    margin-left: 30%; 
+    margin-top: 30%;
 }
