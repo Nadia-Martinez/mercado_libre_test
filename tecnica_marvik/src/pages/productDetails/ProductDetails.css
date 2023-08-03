@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 80%;
-    background-color: lightgrey;
+    background-color: rgb(245, 242, 233);
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
@@ -56,6 +56,24 @@
     margin-bottom: 5px;
 }
 
+.buyContainer {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin-left: 10px;
+}
+
+.reviewValueContainer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.reviewValue {
+    font-family: "Montserrat-Light";
+}
+
 .otherDetailsContainer {
     display: flex;
     flex-direction: column;
@@ -72,4 +90,20 @@
 .productAttribute {
     font-family: "Montserrat-Light";
     margin-bottom: 2px;
+}
+
+.allReviewsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.reviewContainer {
+    display: flex; 
+    flex-direction: row;
+    margin-bottom: 5px;
+}
+
+.reviewDescription {
+    margin-left: 20px;
+    font-family: "Montserrat-Light";
 }

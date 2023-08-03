@@ -1,12 +1,14 @@
 import './ProductDetails.css';
 import React from "react";
-import { fetchProductInfo } from "../../DataStore";
+import { fetchProductInfo, fetchProductReviews } from "../../DataStore";
 import CircularProgress from "@mui/material/CircularProgress";
 import ImagesCarousel from "../../components/imagesCarousel/ImagesCarousel";
 import Button from "@mui/material/Button";
+import Rating from '@mui/material/Rating';
 
 function ProductDetails() {
     const [productInfo, setProductInfo] = React.useState<any>(undefined);
+    const [productReviews, setProductReviews] = React.useState<any>([]);
     const [loadingProduct, setLoadingProduct] = React.useState(false);
 
     const getProductInfo = React.useCallback(async (id: string) => {
@@ -16,12 +18,18 @@ function ProductDetails() {
         setProductInfo(response);
 
         setLoadingProduct(false);
-    }, [])
+    }, []);
+
+    const getProductReviews = (id: string) => {
+        const response = fetchProductReviews(id);
+        setProductReviews(response);
+    };
 
     React.useEffect(() => {
         const {productId} = window.history.state;
 
         getProductInfo(productId);
+        getProductReviews(productId)
     }, [getProductInfo])
       
     return (
@@ -47,7 +55,7 @@ function ProductDetails() {
                         {productInfo.seller_address.search_location && 
                         <div className='infoContainer'>
                             <div className='otherInfoTitle'>Detalles del Vendedor</div>
-                            <div className='productPrimaryDetail'>{"Departamento: " + productInfo.seller_address.search_location.state!.name}</div>
+                            <div className='productPrimaryDetail'>{"Departamento: " + productInfo.seller_address.search_location.state.name}</div>
                             <div className='productPrimaryDetail'>{"Ciudad/Barrio: " + productInfo.seller_address.search_location.city.name}</div>
                             <div className='productPrimaryDetail'>{"Vendedor: " + productInfo.seller_id}</div>
                         </div>}
@@ -59,12 +67,31 @@ function ProductDetails() {
                         </div>}
                     </div>
 
-                    <Button variant="contained" sx={{height: 50, width: "20%"}}>Comprar ahora</Button>
+                    <div className='buyContainer'>
+                        <Button variant="contained" sx={{height: 50}}>Comprar ahora</Button>
+
+                        <div className='reviewValueContainer'>
+                            <Rating name="read-only" value={productReviews.review_value} readOnly />
+                            <div className='reviewValue'>{"(" + productReviews.reviews.length + ")"}</div>
+                        </div>
+                    </div>
                 </div>
 
                 <div className='otherDetailsContainer'>
                     <div className='otherDetailsTitle'>Detalles del producto</div>
                     {productInfo.attributes.map((value: any) => {return value.value_name !== null && <div className='productAttribute' key={value.id}>{value.name + ": " + value.value_name}</div>})}
+                </div>
+
+                <div className='allReviewsContainer'>
+                    <div className='otherDetailsTitle'>Reseñas</div>
+
+                    {productReviews.reviews.map((review: {description: string, rating: number}, index: number) => {
+                        return (
+                        <div className='reviewContainer' key={index}>
+                            <Rating name="read-only" value={review.rating} readOnly />
+                            <div className='reviewDescription'>{review.description}</div>
+                        </div>
+                    )})}
                 </div>
             </div>
             }
