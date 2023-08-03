@@ -1,10 +1,10 @@
 import './ProductDetails.css';
 import React from "react";
-import { fetchProductInfo, fetchProductReviews } from "../../DataStore";
 import CircularProgress from "@mui/material/CircularProgress";
-import ImagesCarousel from "../../components/imagesCarousel/ImagesCarousel";
 import Button from "@mui/material/Button";
 import Rating from '@mui/material/Rating';
+import { fetchProductInfo, fetchProductReviews } from "../../DataStore";
+import ImagesCarousel from "../../components/imagesCarousel/ImagesCarousel";
 
 function ProductDetails() {
     const [productInfo, setProductInfo] = React.useState<any>(undefined);
