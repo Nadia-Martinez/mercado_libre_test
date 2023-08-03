@@ -1,0 +1,79 @@
+.sellerInfoWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    background-color: rgb(245, 242, 233);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 50px;
+}
+
+.sellerInfoContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nicknameText {
+    font-family: "Montserrat-Bold";
+    font-size: 30px;
+}
+ 
+.stats {
+    font-family: "Montserrat-Regular";
+    margin-bottom: 10px;
+    margin-top: 30px;
+    font-size: 20px; 
+}
+
+.statsContainer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.statsText {
+    font-family: "Montserrat-Light";
+    margin-right: 20px;
+    font-size: 15px;
+}
+
+.memberSince {
+    font-family: "Montserrat-Regular";
+    font-size: 18px;
+}
+
+.reputationContainer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.reputation {
+    font-family: "Montserrat-Regular";
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.sellerHistoryWrapper {
+    margin-top: 50px;
+}
+
+.sellerHistoryContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sellHistoryText {
+    font-family: "Montserrat-Regular";
+    margin-bottom: 10px;
+    font-size: 20px;
+}

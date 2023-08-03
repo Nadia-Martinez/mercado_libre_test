@@ -58,3 +58,94 @@ export function fetchProductReviews(product_id: string) {
 
     return response;
 }
+
+export async function fetchSellerDetails() { //For a hardcoded seller, could be generalized by seller id
+    const response = await fetch("https://api.mercadolibre.com/sites/MLU/search?seller_id=181758050");
+    const sellerInfo = await response.json();
+
+    return sellerInfo;
+}
+
+export function fetchSellerHistory() {
+    const history = [
+        {
+            id: 'MLU651280646',
+            title: "Disco Sólido Interno Kingston Sa400s37/240g 240gb Negro",
+            category_id: "MLU1672",
+            thumbnail: "http://http2.mlstatic.com/D_825890-MLA54124091906_032023-I.jpg",
+            currency_id: "USD",
+            price: 20,
+            sold_quantity: 1,
+            sale_date: "01/08/2023",  
+        },
+        {
+            id: "MLU634926770",
+            title: "Taladro Atornillador Inalámbrico De 10mm Ingco Cdli20011 20v + Accesorios Con Caja De Cartón 220v - 240v 50hz/60hz",
+            condition: "new",
+            category_id: "MLU164668",
+            thumbnail: "http://http2.mlstatic.com/D_957967-MLA48450954953_122021-I.jpg",
+            currency_id: "USD",
+            price: 90.44,
+            sold_quantity: 1,
+            sale_date: "03/07/2023",   
+        },
+        {
+            id: "MLU649351740",
+            title: "Resma Fanacopy A4 Multifunción De 500 Hojas De 75g Blanco",
+            condition: "new",
+            category_id: "MLU164908",
+            thumbnail: "http://http2.mlstatic.com/D_785839-MLA53880430159_022023-I.jpg",
+            currency_id: "UYU",
+            price: 149,
+            sold_quantity: 3,
+            sale_date: "12/06/2023"  
+        },
+        {
+            id: 'MLU651280646',
+            title: "Disco Sólido Interno Kingston Sa400s37/240g 240gb Negro",
+            category_id: "MLU1672",
+            thumbnail: "http://http2.mlstatic.com/D_825890-MLA54124091906_032023-I.jpg",
+            currency_id: "USD",
+            price: 20,
+            sold_quantity: 2,
+            sale_date: "10/05/2023",  
+        },
+        {
+            id: "MLU631463607",
+            title: "Mouse Inalámbrico Logitech  M170 Negro",
+            condition: "new",
+            category_id: "MLU1714",
+            thumbnail: "http://http2.mlstatic.com/D_744609-MLA32854739285_112019-I.jpg",
+            currency_id: "UYU",
+            price: 349,
+            sold_quantity: 1,
+            sale_date: "12/04/2023",  
+        },
+        {
+            id: 'MLU651280646',
+            title: "Disco Sólido Interno Kingston Sa400s37/240g 240gb Negro",
+            category_id: "MLU1672",
+            thumbnail: "http://http2.mlstatic.com/D_825890-MLA54124091906_032023-I.jpg",
+            currency_id: "USD",
+            price: 20,
+            sold_quantity: 1,
+            sale_date: "10/03/2023",  
+        },
+        {
+            id: "MLU649351740",
+            title: "Resma Fanacopy A4 Multifunción De 500 Hojas De 75g Blanco",
+            condition: "new",
+            category_id: "MLU164908",
+            thumbnail: "http://http2.mlstatic.com/D_785839-MLA53880430159_022023-I.jpg",
+            currency_id: "UYU",
+            price: 149,
+            sold_quantity: 1,
+            sale_date: "02/03/2023"  
+        },
+    ];   
+    
+    return history;
+}            
+                       
+                      
+              

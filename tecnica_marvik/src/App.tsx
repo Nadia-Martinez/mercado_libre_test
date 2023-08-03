@@ -3,33 +3,30 @@ import './App.css';
 import Header from './components/header/Header';
 import CategoriesProductsList from './pages/categoryProductsList/CategoryProductsList';
 import ProductDetails from './pages/productDetails/ProductDetails';
+import SellerDetails from './pages/sellerDetails/SellerDetails';
 
 function App() {
-  const [showCategories, setShowCategories] = React.useState(true);
-  const [showProductDetails, setShowProductDetails] = React.useState(false);
+  const [pageToShow, setPageToShow] = React.useState<"categories" | "product" | "seller">("categories");
 
   React.useEffect(() => {
     const url = window.history;
 
     if (url.state !== null) {
       const {state} = url;
-      if (state.categoryId !== undefined && state.productId !== undefined) {
-        setShowProductDetails(true);
-        setShowCategories(false);
-      }
-      else {
-        setShowProductDetails(false);
-        setShowCategories(true);
-      }
-    }
+      if (state.categoryId !== undefined && state.productId !== undefined) setPageToShow("product");
+      else if (state.categoryId !== undefined) setPageToShow("categories");
+      else if (state.sellerId !== undefined) setPageToShow("seller");
+    } else setPageToShow("categories");
   }, [])
 
   return (
     <div className="App">
       <Header />
+
       <div className='bodyContainer'>
-        {showCategories && <CategoriesProductsList />}
-        {showProductDetails && <ProductDetails />}
+        {pageToShow === "categories" && <CategoriesProductsList />}
+        {pageToShow === "product" && <ProductDetails />}
+        {pageToShow === "seller" && <SellerDetails />}
       </div>
     </div>
   );

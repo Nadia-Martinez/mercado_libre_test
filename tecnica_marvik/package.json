@@ -7,6 +7,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.1",
     "@mui/material": "^5.14.2",
+    "@mui/x-date-pickers": "^6.10.2",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -14,6 +15,7 @@
     "@types/node": "^16.18.39",
     "@types/react": "^18.2.17",
     "@types/react-dom": "^18.2.7",
+    "dayjs": "^1.11.9",
     "nuka-carousel": "^6.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -44,5 +46,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
