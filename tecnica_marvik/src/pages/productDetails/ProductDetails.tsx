@@ -20,17 +20,17 @@ function ProductDetails() {
         setLoadingProduct(false);
     }, []);
 
-    const getProductReviews = (id: string) => {
+    const getProductReviews = React.useCallback((id: string) => {
         const response = fetchProductReviews(id);
         setProductReviews(response);
-    };
+    }, []);
 
     React.useEffect(() => {
         const {productId} = window.history.state;
 
         getProductInfo(productId);
-        getProductReviews(productId)
-    }, [getProductInfo])
+        getProductReviews(productId);
+    }, [getProductInfo, getProductReviews]);
       
     return (
         <>
