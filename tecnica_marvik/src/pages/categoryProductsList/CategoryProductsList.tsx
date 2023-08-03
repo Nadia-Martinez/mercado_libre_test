@@ -8,8 +8,8 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
-import ProductListItem from '../../components/productListItem/ProductListItem';
 import { fetchCategories, fetchCategoryProducts } from '../../DataStore';
+import ProductListItem from '../../components/productListItem/ProductListItem';
 
 function CategoriesProductsList() {
     const [categories, setCategories] = React.useState([]);

@@ -4,7 +4,7 @@ function ProductHistoryItem(props: any) {
     const {product} = props;
 
     return (
-        <div className="itemContainer">
+        <div className="historyItemContainer">
             <img src={product.thumbnail} alt={product.title} />
 
             <div className="detailsContainer">

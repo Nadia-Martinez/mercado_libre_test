@@ -1,9 +1,9 @@
 import './SellerDetails.css';
 import React from "react";
-import { fetchSellerDetails, fetchSellerHistory } from "../../DataStore";
 import Rating from "@mui/material/Rating";
 import CircularProgress from '@mui/material/CircularProgress';
 import dayjs, { Dayjs } from 'dayjs';
+import { fetchSellerDetails, fetchSellerHistory } from "../../DataStore";
 import ProductHistoryItem from '../../components/productHistoryItem/ProductHistoryItem';
 import DateRangePicker from '../../components/dateRangePicker/DateRangePicker';
 
