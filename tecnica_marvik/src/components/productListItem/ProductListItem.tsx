@@ -1,10 +1,11 @@
 import './ProductListItem.css';
 
 function ProductListItem(props: any) {
-    const {product} = props;
+    const {product, categoryId} = props;
 
     const handleProductClick = () => {
-        //TODO: Define handler
+        window.history.pushState({categoryId: categoryId, productId: product.id}, "", `http://localhost:3000/${categoryId}/${product.id}`);
+        window.history.go();
     }
 
     return (
