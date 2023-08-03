@@ -1,0 +1,75 @@
+.productInfoContainer {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    background-color: lightgrey;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 50px;
+}
+
+.primaryDetailsWrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.primaryDetailsContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    width: 80%;
+}
+
+.productTitle {
+    font-family: "Montserrat-Bold";
+    font-size: 25px;
+}
+
+.productPrice {
+    margin-top: 20px;
+    font-family: "Montserrat-Regular";
+    font-size: 35px;
+}
+
+.productCondition {
+    margin-top: 20px;
+    font-family: "Montserrat-Light";
+}
+
+.productPrimaryDetail {
+    margin-top: 5px;
+    font-family: "Montserrat-Light";
+}
+
+.infoContainer {
+    margin-top: 30px;
+}
+
+.otherInfoTitle {
+    font-family: "Montserrat-Regular";
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.otherDetailsContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.otherDetailsTitle {
+    font-family: "Montserrat-Regular";
+    font-size: 20px;
+    margin-bottom: 20px; 
+}
+
+.productAttribute {
+    font-family: "Montserrat-Light";
+    margin-bottom: 2px;
+}

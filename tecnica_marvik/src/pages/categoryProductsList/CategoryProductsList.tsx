@@ -65,6 +65,7 @@ function CategoriesProductsList() {
     }, []);
 
     const handleCategoryClick = async (category: any) => {
+        window.history.pushState({categoryId: category.id}, "", `http://localhost:3000/${category.id}`);
         setSelectedCategory(category);
         
         setLoadingCategory(true);
@@ -116,7 +117,7 @@ function CategoriesProductsList() {
                                 </FormControl>  
                             </div>
                         </div>
-                        {currentOrderProducts && currentOrderProducts.map((product: any) => {return <ProductListItem key={product.id} product={product} />})}
+                        {currentOrderProducts && currentOrderProducts.map((product: any) => {return <ProductListItem key={product.id} product={product} categoryId={selectedCategory.id} />})}
                     </>
                 :
                 <div className='emptyText'>Seleccione una categoría para ver los productos</div>
