@@ -1,15 +1,17 @@
-import './SellerDetails.css';
 import React from "react";
 import Rating from "@mui/material/Rating";
 import CircularProgress from '@mui/material/CircularProgress';
 import dayjs, { Dayjs } from 'dayjs';
-import { fetchSellerDetails, fetchSellerHistory } from "../../DataStore";
+
+import { HistoryProduct, SellerInfo, fetchSellerDetails, fetchSellerHistory } from "../../DataStore";
 import ProductHistoryItem from '../../components/productHistoryItem/ProductHistoryItem';
 import DateRangePicker from '../../components/dateRangePicker/DateRangePicker';
 
+import './SellerDetails.css';
+
 function SellerDetails() {
-    const [sellerDetails, setSellerDetails] = React.useState<any>(undefined);
-    const [sellerHistory, setSellerHistory] = React.useState<any>(undefined);
+    const [sellerDetails, setSellerDetails] = React.useState<SellerInfo | undefined>(undefined);
+    const [sellerHistory, setSellerHistory] = React.useState<HistoryProduct[]>([]);
     const [loadingDetails, setLoadingDetails] = React.useState(false);
     const [dateFilter, setDateFilter] = React.useState<[Dayjs, Dayjs] | []>([]);
 
@@ -88,7 +90,7 @@ function SellerDetails() {
                         <DateRangePicker initialDate={dayjs(getDate(sellerDetails?.seller?.registration_date))} endDate={dayjs()} handleSelectRange={handleSelectRange} />
                     </div>
 
-                    {sellerHistory.map((product: any, index: string) => {return itemDateBetweenFilter(product.sale_date) && <ProductHistoryItem key={index} product={product} />})}
+                    {sellerHistory.map((product: HistoryProduct, index: number) => {return itemDateBetweenFilter(product.sale_date) && <ProductHistoryItem key={index} product={product} />})}
                 </div>
             </div>
             }
