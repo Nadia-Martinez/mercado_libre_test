@@ -1,4 +1,3 @@
-import './CategoryProductsList.css';
 import React from 'react';
 import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -8,15 +7,18 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
-import { fetchCategories, fetchCategoryProducts } from '../../DataStore';
+
+import { Category, Product, fetchCategories, fetchCategoryProducts } from '../../DataStore';
 import ProductListItem from '../../components/productListItem/ProductListItem';
 
+import './CategoryProductsList.css';
+
 function CategoriesProductsList() {
-    const [categories, setCategories] = React.useState([]);
+    const [categories, setCategories] = React.useState<Category[]>([]);
     const [selectedCategory, setSelectedCategory] = React.useState<{id: string, name: string} | undefined>(undefined);
-    const [categoryProducts, setCategoryProducts] = React.useState([]);
+    const [categoryProducts, setCategoryProducts] = React.useState<Product[]>([]);
     const [loadingCategory, setLoadingCategory] = React.useState(false);
-    const [currentOrderProducts, setCurrentOrderProducts] = React.useState([]);
+    const [currentOrderProducts, setCurrentOrderProducts] = React.useState<Product[]>([]);
     const [order, setOrder] = React.useState('default');
     const [shipping, setShipping] = React.useState(false);
     const [isNew, setIsNew] = React.useState(false);
@@ -27,10 +29,10 @@ function CategoriesProductsList() {
       const products = categoryProducts;
       
       if (order === "less") {
-        products.sort((item1: any, item2: any) => item2.price - item1.price);
+        products.sort((item1: Product, item2: Product) => item2.price - item1.price);
         setCurrentOrderProducts(products);
       } else if (order === "more") {
-        products.sort((item1: any, item2: any) => item1.price - item2.price);
+        products.sort((item1: Product, item2: Product) => item1.price - item2.price);
         setCurrentOrderProducts(products);
       } else {
         setCurrentOrderProducts(categoryProducts);
@@ -41,7 +43,7 @@ function CategoriesProductsList() {
         setShipping(event.target.checked);
 
         if (event.target.checked) {
-            const products = currentOrderProducts.filter((product: any) => {return product.shipping.free_shipping === true})
+            const products = currentOrderProducts.filter((product: Product) => {return product.shipping.free_shipping === true})
             setCurrentOrderProducts(products);
         } else setCurrentOrderProducts(categoryProducts);
     };
@@ -50,7 +52,7 @@ function CategoriesProductsList() {
         setIsNew(event.target.checked);
 
         if (event.target.checked) {
-            const products = currentOrderProducts.filter((product: any) => {return product.condition === "new"})
+            const products = currentOrderProducts.filter((product: Product) => {return product.condition === "new"})
             setCurrentOrderProducts(products);
         } else setCurrentOrderProducts(categoryProducts);
     };
@@ -64,7 +66,7 @@ function CategoriesProductsList() {
         getCategories()
     }, []);
 
-    const handleCategoryClick = async (category: any) => {
+    const handleCategoryClick = async (category: Category) => {
         window.history.pushState({categoryId: category.id}, "", `http://localhost:3000/${category.id}`);
         setSelectedCategory(category);
         
@@ -83,7 +85,7 @@ function CategoriesProductsList() {
         <>
             <div className="container">
                 <div className="title">Categorías</div>
-                {categories.map((category: any) => {
+                {categories.map((category: Category) => {
                     return category && <Button key={category.id} sx={{color: "#FFFFFF", fontFamily: 'Montserrat-Regular'}} variant="text" onClick={() => handleCategoryClick(category)}>{category.name}</Button>
                     })}        
             </div>
@@ -117,7 +119,7 @@ function CategoriesProductsList() {
                                 </FormControl>  
                             </div>
                         </div>
-                        {currentOrderProducts && currentOrderProducts.map((product: any) => {return <ProductListItem key={product.id} product={product} categoryId={selectedCategory.id} />})}
+                        {currentOrderProducts && currentOrderProducts.map((product: Product) => {return <ProductListItem key={product.id} product={product} categoryId={selectedCategory.id} />})}
                     </>
                 :
                 <div className='emptyText'>Seleccione una categoría para ver los productos</div>

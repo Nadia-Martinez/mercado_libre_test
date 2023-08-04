@@ -1,6 +1,13 @@
+import { Product } from '../../DataStore';
+
 import './ProductListItem.css';
 
-function ProductListItem(props: any) {
+export interface ProductListItemProps {
+	product: Product;
+    categoryId: string;
+}
+
+function ProductListItem(props: ProductListItemProps) {
     const {product, categoryId} = props;
 
     const handleProductClick = () => {

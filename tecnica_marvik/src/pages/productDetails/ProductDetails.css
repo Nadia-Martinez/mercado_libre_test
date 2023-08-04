@@ -7,9 +7,7 @@
     margin-right: auto;
     margin-top: 30px;
     margin-bottom: 30px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 50px;
+    padding: 40px;
 }
 
 .primaryDetailsWrapper {
@@ -45,6 +43,12 @@
     font-family: "Montserrat-Light";
 }
 
+.shippingDetail {
+    margin-top: 15px;
+    font-family: "Montserrat-Bold";
+    color: #00a650;
+}
+
 .infoContainer {
     margin-top: 30px;
 }
@@ -66,7 +70,7 @@
 .reviewValueContainer {
     display: flex;
     flex-direction: row;
-    margin-top: 20px;
+    margin-bottom: 20px;
     align-items: center;
 }
 
@@ -100,10 +104,16 @@
 .reviewContainer {
     display: flex; 
     flex-direction: row;
+    align-items: center;
     margin-bottom: 5px;
 }
 
 .reviewDescription {
     margin-left: 20px;
     font-family: "Montserrat-Light";
+}
+
+.reviewDate {
+    font-family: "Montserrat-Light";
+    margin-right: 10px;
 }

@@ -1,6 +1,12 @@
+import { HistoryProduct } from '../../DataStore';
+
 import './ProductHistoryItem.css';
 
-function ProductHistoryItem(props: any) {
+export interface ProductHistoryItemProps {
+	product: HistoryProduct;
+}
+
+function ProductHistoryItem(props: ProductHistoryItemProps) {
     const {product} = props;
 
     return (

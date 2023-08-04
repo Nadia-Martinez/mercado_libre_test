@@ -1,9 +1,15 @@
-import Carousel from "nuka-carousel"
+import Carousel from "nuka-carousel";
 
-function ImagesCarousel(props: any) {
+import { Image } from '../../DataStore';
+
+export interface ImagesCarouselProps {
+	images: Image[];
+}
+
+function ImagesCarousel(props: ImagesCarouselProps) {
     return (
         <Carousel wrapAround style={{backgroundColor: "white", width: 500}}>
-            {props.images.map((image: any, index: number) => {return <img key={index} src={image.url} alt={`Imagen ${index}`} />})}
+            {props.images.map((image: Image, index: number) => {return <img key={index} src={image.url} alt={`Imagen ${index}`} />})}
         </Carousel>
     )
 };

@@ -1,14 +1,16 @@
-import './ProductDetails.css';
 import React from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import Button from "@mui/material/Button";
 import Rating from '@mui/material/Rating';
-import { fetchProductInfo, fetchProductReviews } from "../../DataStore";
+
+import { Product, ProductReview, fetchProductInfo, fetchProductReviews } from "../../DataStore";
 import ImagesCarousel from "../../components/imagesCarousel/ImagesCarousel";
 
+import './ProductDetails.css';
+
 function ProductDetails() {
-    const [productInfo, setProductInfo] = React.useState<any>(undefined);
-    const [productReviews, setProductReviews] = React.useState<any>([]);
+    const [productInfo, setProductInfo] = React.useState<Product | undefined>(undefined);
+    const [productReviews, setProductReviews] = React.useState<ProductReview | undefined>(undefined);
     const [loadingProduct, setLoadingProduct] = React.useState(false);
 
     const getProductInfo = React.useCallback(async (id: string) => {
@@ -49,15 +51,13 @@ function ProductDetails() {
                         <div className='productPrice'>{productInfo.currency_id === "USD" ? "US$ " + productInfo.price : "$ " + productInfo.price}</div>
                         <div className='productCondition'>{`Condición: ${productInfo.condition === "new" ? "Nuevo" : "Usado"}`}</div>
                         {productInfo.accepts_mercadopago && <div className='productPrimaryDetail'>Acepta Mercado Pago</div>}
-                        <div className='productPrimaryDetail'>{productInfo.shipping.free_shipping ? "Envío gratis: Sí" : "Envío gratis: No"}</div>
                         <div className='productPrimaryDetail'>{productInfo.shipping.local_pick_up ? "Retiro en tienda: Sí" : "Retiro en tienda: No"}</div>
-
+                        
                         {productInfo.seller_address.search_location && 
                         <div className='infoContainer'>
                             <div className='otherInfoTitle'>Detalles del Vendedor</div>
                             <div className='productPrimaryDetail'>{"Departamento: " + productInfo.seller_address.search_location.state.name}</div>
                             <div className='productPrimaryDetail'>{"Ciudad/Barrio: " + productInfo.seller_address.search_location.city.name}</div>
-                            <div className='productPrimaryDetail'>{"Vendedor: " + productInfo.seller_id}</div>
                         </div>}
 
                         {productInfo.sale_terms.length > 0 && 
@@ -68,12 +68,13 @@ function ProductDetails() {
                     </div>
 
                     <div className='buyContainer'>
-                        <Button variant="contained" sx={{height: 50}}>Comprar ahora</Button>
-
-                        <div className='reviewValueContainer'>
+                        {productReviews && <div className='reviewValueContainer'>
                             <Rating name="read-only" value={productReviews.review_value} readOnly />
                             <div className='reviewValue'>{"(" + productReviews.reviews.length + ")"}</div>
-                        </div>
+                        </div>}
+
+                        <Button variant="contained" sx={{height: 50}}>Comprar ahora</Button>
+                        <div className='shippingDetail'>{productInfo.shipping.free_shipping && "¡Envío gratis!"}</div>
                     </div>
                 </div>
 
@@ -85,9 +86,10 @@ function ProductDetails() {
                 <div className='allReviewsContainer'>
                     <div className='otherDetailsTitle'>Reseñas</div>
 
-                    {productReviews.reviews.map((review: {description: string, rating: number}, index: number) => {
+                    {productReviews && productReviews.reviews.map((review: {description: string, rating: number, date: string}, index: number) => {
                         return (
                         <div className='reviewContainer' key={index}>
+                            <div className='reviewDate'>{review.date}</div>
                             <Rating name="read-only" value={review.rating} readOnly />
                             <div className='reviewDescription'>{review.description}</div>
                         </div>
