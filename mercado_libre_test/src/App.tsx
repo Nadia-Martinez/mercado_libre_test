@@ -1,9 +1,10 @@
 import React from 'react';
-import './App.css';
 import Header from './components/header/Header';
 import CategoriesProductsList from './pages/categoryProductsList/CategoryProductsList';
 import ProductDetails from './pages/productDetails/ProductDetails';
 import SellerDetails from './pages/sellerDetails/SellerDetails';
+
+import './App.css';
 
 function App() {
   const [pageToShow, setPageToShow] = React.useState<"categories" | "product" | "seller">("categories");
